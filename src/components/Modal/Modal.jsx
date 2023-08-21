@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { DivOverlay, DivModalStyle } from "./Modal.styled";
 
 function Modal({ imageUrl, closeModal }) {
+   // Efecto para manejar el cierre del modal al presionar la tecla Escape
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.code === "Escape") {
@@ -17,6 +18,7 @@ function Modal({ imageUrl, closeModal }) {
     };
   }, [closeModal]);
 
+  // Manejar el cierre del modal al hacer clic en el fondo
   const handleBackdropClick = (e) => {
     if (e.currentTarget === e.target) {
       closeModal();
@@ -24,9 +26,10 @@ function Modal({ imageUrl, closeModal }) {
   };
 
   return (
+    // DivOverlay cubre toda la pantalla y maneja el clic en el fondo
     <DivOverlay onClick={handleBackdropClick}>
       <DivModalStyle>
-        <img src={imageUrl} alt="" />
+        <img src={ imageUrl } alt="" />
       </DivModalStyle>
     </DivOverlay>
   );

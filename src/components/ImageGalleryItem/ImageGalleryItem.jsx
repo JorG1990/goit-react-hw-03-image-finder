@@ -6,9 +6,11 @@ import { Li } from "./ImageGalleryItem.styled";
 function ImageGalleryItem({ image, onImageClick }) {
   return (
     <Li className="gallery-item">
-      <img src={ image.webformatURL }
-      alt={ image.tags }
-      onClick={() => onImageClick(image.largeImageURL )} />
+      <img
+        src={ image.webformatURL }
+        alt={ image.tags }
+        onClick={() => onImageClick(image.largeImageURL )}
+      />
     </Li>
   );
 }

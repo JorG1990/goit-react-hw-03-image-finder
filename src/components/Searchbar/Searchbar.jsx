@@ -5,13 +5,13 @@ import { MdSearch } from "react-icons/md";
 import { Header, SearchForm, Input, SearchButton } from "./Searchbar.styled";
 
 function Searchbar({ onSubmit }) {
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
 
-  const handleChange = e=> {
+  const handleChange = (e) => {
     setQuery(e.currentTarget.value);
   };
 
-  const handleSumit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     onSubmit(query);
@@ -19,22 +19,30 @@ function Searchbar({ onSubmit }) {
   };
 
   const reset = () => {
-    setQuery('');
+    setQuery("");
   };
   return (
     <Header>
-      <SearchForm onSubmit={ handleSumit }>
+      <SearchForm onSubmit={ handleSubmit }>
         <SearchButton type="submit">
           <MdSearch style={{ width: 20, height: 20}} />
         </SearchButton>
-        <Input type="text" name="query" value={ query } onChange={ handleChange } autoComplete="off" autoFocus placeholder="Search images and photos" />
+        <Input
+          type="text"
+          name="query"
+          value={ query }
+          onChange={ handleChange }
+          autoComplete="off"
+          autoFocus
+          placeholder="Search images and photos"
+        />
       </SearchForm>
     </Header>
   );
 }
 
 Searchbar.propTypes = {
-  onSubmit: PropTypes.func,
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default Searchbar;

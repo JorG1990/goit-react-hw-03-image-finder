@@ -5,10 +5,12 @@ import { ButtonLoreMore } from "./Button.styled";
 
 const Button = ({ onClick, disabled, showMoreButton }) => {
   return (
+    // Renderizar el botón solo si showMoreButton es verdadero
+    // Esto ayuda a mantener un componente más limpio y evitar renderizaciones innecesarias
     <>
     {showMoreButton && (
-      <ButtonLoreMore onClick={onClick} disabled={disabled}>
-        load more
+      <ButtonLoreMore onClick={ onClick } disabled={ disabled }>
+        Load More
       </ButtonLoreMore>
     )}
     </>

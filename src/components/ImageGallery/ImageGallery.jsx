@@ -7,7 +7,7 @@ import { Li } from "./ImageGallery.styled";
 function ImageGallery({ images, onImageClick }) {
   return (
     <ul className="gallery">
-      {images && images.map((image) => (
+      { images.map((image) => (
         <Li className="gallery-item" key={ image.id } >
           <ImageGalleryItem image={ image } onImageClick={onImageClick} />
         </Li>
@@ -17,7 +17,13 @@ function ImageGallery({ images, onImageClick }) {
 }
 
 ImageGallery.propTypes = {
-  images: PropTypes.array.isRequired,
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    url: PropTypes.string.isRequired,
+    alt: PropTypes.string.isRequired
+  })
+  ).isRequired,
   onImageClick: PropTypes.func.isRequired,
 };
 
